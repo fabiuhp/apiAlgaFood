@@ -12,7 +12,7 @@ import com.algaworks.algafood.di.notificacao.Notificador;
 public class AtivacaoClienteService {
 
 	@Autowired
-	@TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
+	@TipoDoNotificador(NivelUrgencia.NORMAL)
 	private Notificador notificador;
 
 	public void ativar(Cliente cliente) {
