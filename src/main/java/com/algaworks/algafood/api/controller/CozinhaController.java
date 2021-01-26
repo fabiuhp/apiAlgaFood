@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cozinhas")
+@RequestMapping(value = "/cozinhas")
 public class CozinhaController {
+
     @Autowired
     private CozinhaRepository cozinhaRepository;
 
@@ -23,13 +24,9 @@ public class CozinhaController {
         return cozinhaRepository.listar();
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
-    public CozinhasXmlWrapper listarXml() {
-        return new CozinhasXmlWrapper(cozinhaRepository.listar());
-    }
-
     @GetMapping("/{cozinhaId}")
     public Cozinha buscar(@PathVariable Long cozinhaId) {
         return cozinhaRepository.buscar(cozinhaId);
     }
+
 }
