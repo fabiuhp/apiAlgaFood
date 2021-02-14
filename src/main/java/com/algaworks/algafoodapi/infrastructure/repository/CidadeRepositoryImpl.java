@@ -2,11 +2,13 @@ package com.algaworks.algafoodapi.infrastructure.repository;
 
 import com.algaworks.algafoodapi.domain.model.Cidade;
 import com.algaworks.algafoodapi.domain.repository.CidadeRepository;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Component
 public class CidadeRepositoryImpl implements CidadeRepository {
 
     @PersistenceContext
