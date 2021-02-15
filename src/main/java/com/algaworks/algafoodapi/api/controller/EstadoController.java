@@ -1,6 +1,5 @@
 package com.algaworks.algafoodapi.api.controller;
 
-import com.algaworks.algafoodapi.domain.model.Cozinha;
 import com.algaworks.algafoodapi.domain.model.Estado;
 import com.algaworks.algafoodapi.domain.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,10 @@ public class EstadoController {
     public ResponseEntity<Estado> buscar(@PathVariable Long estadoId) {
         Estado estado = estadoRepository.buscar(estadoId);
 
-        return ResponseEntity.ok(estado);
+        if (estado != null) {
+            return ResponseEntity.ok(estado);
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }
