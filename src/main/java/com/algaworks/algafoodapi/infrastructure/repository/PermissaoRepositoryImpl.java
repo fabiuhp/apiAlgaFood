@@ -3,6 +3,7 @@ package com.algaworks.algafoodapi.infrastructure.repository;
 import com.algaworks.algafoodapi.domain.model.Permissao;
 import com.algaworks.algafoodapi.domain.repository.PermissaoRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,11 +27,13 @@ public class PermissaoRepositoryImpl implements PermissaoRepository {
         return manager.find(Permissao.class, id);
     }
 
+    @Transactional
     @Override
     public Permissao salvar(Permissao permissao) {
         return manager.merge(permissao);
     }
 
+    @Transactional
     @Override
     public void remover(Permissao permissao) {
         permissao = buscar(permissao.getId());
