@@ -16,7 +16,7 @@ public class CadastroEstadoService {
         return estadoRepository.salvar(estado);
     }
 
-    public void remover(Long estadoId) {
+    public void excluir(Long estadoId) {
         Estado estado = estadoRepository.buscar(estadoId);
 
         if (estado == null) {
