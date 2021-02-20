@@ -69,14 +69,16 @@ public class CidadeController {
     }
 
     @DeleteMapping("/{cidadeId}")
-    public ResponseEntity<?> remover(@PathVariable Long cidadeId) {
+    public ResponseEntity<Cidade> remover(@PathVariable Long cidadeId) {
         try {
             cidadeService.excluir(cidadeId);
             return ResponseEntity.noContent().build();
+
         } catch (EntidadeNaoEncontradaException e) {
             return ResponseEntity.notFound().build();
+
         } catch (EntidadeEmUsoException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }
 }
